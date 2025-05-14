@@ -23,7 +23,15 @@ app.get("/characters/:id", async (req, res) => {
     const dataRaw = (await readFile(__dirname + "/data/characters.json")).toString()
     const data = JSON.parse(dataRaw)
     const finalData = data[id - 1];
-        
+    const root = parse((await readFile(__dirname + "/tmpl/character.html")).toString())
+    const container = root.querySelector("#profile-container")
+    console.log(finalData)
+    for (const key in finalData){
+        if (key !== "id"){
+            container.appendChild(parse(`<p>${key}: ${finalData[key]}</p>`))
+        }
+    }
+    res.send(root.toString())
 })
 
 app.get("/anime", (req, res) => {
