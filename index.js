@@ -24,6 +24,27 @@ app.get("/api/characters", async (req, res) => {
     res.send(data);
 })
 
+app.get("/api/anime", async (req, res) => {
+    const dataRaw = (await readFile(__dirname + "/data/anime.json")).toString()
+    const data = JSON.parse(dataRaw)
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
+})
+
+app.get("/api/staff", async (req, res) => {
+    const dataRaw = (await readFile(__dirname + "/data/staff.json")).toString()
+    const data = JSON.parse(dataRaw)
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
+})
+
+app.get("/api/music", async (req, res) => {
+    const dataRaw = (await readFile(__dirname + "/data/music.json")).toString()
+    const data = JSON.parse(dataRaw)
+    res.setHeader('Content-Type', 'application/json');
+    res.send(data);
+})
+
 app.listen(PORT, (err) => {
     if (err) console.error(err);
     console.log("Server listening on port " + PORT)
