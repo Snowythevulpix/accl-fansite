@@ -170,7 +170,7 @@
 
     <script>
         async function loadCharacterData() {
-            const response = await fetch('\\characters\\characters.json');
+            const response = await fetch('/api/characters');
             const characters = await response.json();
             return characters;
         }
@@ -189,7 +189,7 @@
                 image.alt = character.name;
                 
                 const characterLink = document.createElement('a');
-                characterLink.href = `?id=${character.id}`;
+                characterLink.href = `/characters/${character.id}`;
                 characterLink.textContent = character.name;
                 
                 characterBox.appendChild(image);

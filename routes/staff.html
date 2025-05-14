@@ -170,7 +170,7 @@
 
     <script>
         async function loadCharacterData() {
-            const response = await fetch('\\staff\\staff.json');
+            const response = await fetch('/api/staff');
             const characters = await response.json();
             return characters;
         }

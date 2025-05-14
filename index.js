@@ -1,3 +1,4 @@
+import getBaseUrl from "get-base-url"
 import express from "express";
 import { join } from "path"
 import { readFile } from "fs/promises";
@@ -15,6 +16,14 @@ app.get("/", (req, res) => {
 
 app.get("/characters", (req, res) => {
     res.sendFile(join(__dirname, "/routes/characters.html"))
+})
+
+app.get("/characters/:id", async (req, res) => {
+    const id = req.params.id;
+    const dataRaw = (await fetch(getBaseUrl())).toString()
+    const data = JSON.parse(dataRaw)
+    const finalData = data[id - 1];
+    res.send(finalData)
 })
 
 app.get("/anime", (req, res) => {
