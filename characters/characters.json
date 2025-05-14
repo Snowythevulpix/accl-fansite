@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "name": "Hotaru Hinase",
+    "name_alt": "Hinase Hotaru, \u65e5\u751f \u307b\u305f\u308b Hotaru-chan (Hananoi) Hotako (Yao) Hota-chan (Satomi) Ho-chan (Friends)",
+    "age": "16 (Anime) 17 (Manga)",
+    "description": "Hotaru is a young girl who prioritises her friends over anyone. She doesn't have many friends but the ones she does have she treasures with all her heart",
+    "image": "..\\assets\\characters\\1.png",
+    "voice_actor": "Kana Ichinose (voice comic, Japanese), Kana Hanazawa (anime, Japanese), Dani Chambers (English)"
+  },
+  {
+    "id": "2",
+    "name": "Saki Hananoi",
+    "name_alt": "Hananoi Saki, \u82b1\u91ce\u4e95 \u65e9\u5e0c,\u00a0 Hananoi-kun, Hananoi Sasaki-kun (Little Hotaru), Young man (Ryoji) Sacchan (Dad)",
+    "age": "16 (Anime) 17 (Manga)",
+    "description": "Hananoi is a kind-souled guy, he falls in love with Hotaru due to her kindness and not seeing him as anything special.",
+    "image": "..\\assets\\characters\\2.png",
+    "voice_actor": "Chiaki Kobayashi (Japanese), Blake McNamara (English), Morgan Lea (English, Young Child)"
+  },
+  {
+    "id": 3,
+    "name": "Hibiki Asami",
+    "name_alt": "Asami Hibiki, \u6d45\u898b \u97ff, Kyo-chan (Hotaru)",
+    "age": "16 (Anime) 17 (Manga)",
+    "description": "Hibiki is a recurring character in A Condition Called Love. She is Hotaru's middle school best friend. Unlike Hotaru, she is outgoing and know's about love. this is something Hotaru looks up to in Hibiki.",
+    "image": "..\\\\assets\\\\characters\\\\3.png"
+  },
+  {
+    "id": 4,
+    "name": "Keigo Kurata",
+    "name_alt": "Kurata Keigo, \u5009\u7530 \u572d\u543e",
+    "age": "16 (Anime) 17 (Manga)",
+    "description": "Keigo is a recurring character in A Condition Called Love, much like his girlfriend Hibiki, he is very outgoing, a mirror to Hananoi could be one way of describing him.",
+    "image": "..\\\\assets\\\\characters\\\\4.png"
+  },
+  {
+    "id": 5,
+    "name": "Hotaru Yao",
+    "name_alt": "Hotaru (dog form), \u30db\u30bf\u30eb, Yao Hotaru",
+    "age": "14 (guess)",
+    "description": "Hotaru (not to be confused with [Hotaru](?id=1)) is the Yao family's dog.",
+    "image": "..\\assets\\characters\\5.png"
+  },
+  {
+    "id": "6",
+    "name": "Sohei Yao",
+    "name_alt": "Sohei Yao, \u516b\u5c3e \u5275\u5e73, Yao S\u014dhei, S\u014dhei Yao",
+    "age": "16 (Anime) 17 (Manga)",
+    "description": "Yao is a recurring character in A Condition Called Love. He's an old friend of Hotaru's. Many events in the story happen unintentionally because of his actions. <br> He is one of the owner's of [Hotaru The Dog](?id=5)",
+    "image": "..\\\\assets\\\\characters\\\\6.png"
+  }
+]

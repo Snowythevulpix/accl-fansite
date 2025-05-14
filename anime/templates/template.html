@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hananoi-kun Fansite</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #feccc9;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff5f3;
+            color: #ff6b6b;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        #content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .profile-container {
+            display: flex;
+            flex-direction: column;
+            width: 80%;
+            max-width: 1000px;
+            background-color: #ffb6b9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            position: relative;
+        }
+        .editable {
+            display: inline-block;
+            border: none;
+            background: transparent;
+            font-size: 1.2em;
+            width: 100%;
+            outline: none;
+        }
+        .editable:focus {
+            border-bottom: 1px solid #333;
+        }
+        .save-btn, .import-btn {
+            background-color: #ff6b6b;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            cursor: pointer;
+            font-size: 1em;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>Hananoi-kun to Koi no Yamai Fansite</h1>
+    </div>
+    <div id="content">
+        <h2>Edit Anime Profile</h2>
+        <label for="char-id">Anime ID: </label>
+        <input type="number" id="char-id" placeholder="Enter ID or leave blank" min="1">
+        <button class="import-btn" onclick="loadAnime()">Import ID</button>
+        <div class="profile-container">
+            <p><strong>Name: </strong><span contenteditable="true" class="editable" id="char-name">Click to edit</span></p>
+            <p><strong>Name (alt): </strong><span contenteditable="true" class="editable" id="char-name-alt">Click to edit</span></p>
+            <p><strong>Episode: </strong><span contenteditable="true" class="editable" id="char-age">Click to edit</span></p>
+            <p><strong>Air Date: </strong><span contenteditable="true" class="editable" id="char-airdate">Click to edit</span></p>
+            <p><strong>Description: </strong><span contenteditable="true" class="editable" id="char-description">Click to edit</span></p>
+            <p><strong>Image URL: </strong><span contenteditable="true" class="editable" id="char-image-url" oninput="updateImage()">Click to edit</span></p>
+            <img id="char-image" src="" alt="Anime Image" style="width:200px; border-radius:8px; margin-top:10px;">
+            <button class="save-btn" onclick="saveToServer()">Save</button>
+        </div>
+    </div>
+    <script>
+        function updateImage() {
+            let imgUrl = document.getElementById("char-image-url").innerText;
+            document.getElementById("char-image").src = imgUrl;
+        }
+
+        async function saveToServer() {
+    let id = document.getElementById("char-id").value || null;
+
+    // Try to load existing Anime if ID exists
+    let existing = {};
+    if (id) {
+        const res = await fetch(`/get-Anime/${id}`);
+        if (res.ok) {
+            existing = await res.json();
+        }
+    }
+
+    let Anime = {
+        id,
+        name: document.getElementById("char-name").textContent.trim(),
+        name_alt: document.getElementById("char-name-alt").textContent.trim(),
+        Episode: document.getElementById("char-Episode").textContent.trim(),
+        Airdate: document.getElementById("char-airdate").textContent.trim(),
+        description: document.getElementById("char-description").textContent.trim(),
+        image: document.getElementById("char-image-url").textContent.trim(),
+    };
+
+    const response = await fetch('/save-Anime', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(Anime)
+    });
+
+    try {
+        const text = await response.text();
+        console.log('Response text:', text);
+
+        if (!response.ok) {
+            throw new Error('Server returned an error: ' + response.statusText);
+        }
+
+        const result = JSON.parse(text);
+        alert(result.message);
+
+        if (result.id) {
+            document.getElementById("char-id").value = result.id;
+        }
+    } catch (error) {
+        console.error("Error parsing JSON or server error:", error);
+        alert("Failed to process the request: " + error.message);
+    }
+}
+
+
+
+async function loadAnime() {
+    let charId = document.getElementById("char-id").value;
+    if (!charId) {
+        alert("Please enter a Anime ID to import.");
+        return;
+    }
+    
+    const response = await fetch(`/get-Anime/${charId}`);
+    try {
+        const data = await response.json();
+
+        if (data.error) {
+            alert("Anime not found");
+            return;
+        }
+
+        document.getElementById("char-name").textContent = data.name;
+        document.getElementById("char-name-alt").textContent = data.name_alt; 
+        document.getElementById("char-Episode").textContent = data.Episode;
+        document.getElementById("char-description").textContent = data.description;
+        document.getElementById("char-image-url").textContent = data.image;
+        document.getElementById("char-image").src = data.image;
+
+    } catch (error) {
+        alert("Failed to load Anime data. Response is not valid JSON.");
+        console.error("Error loading Anime:", error);
+    }
+}
+
+    </script>
+</body>
+</html>

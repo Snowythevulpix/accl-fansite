@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Episode Profiles</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            margin: 0;
+            background-color: #feccc9;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff5f3;
+            color: #ff6b6b;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 1.5em;
+        }
+        #content {
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 40px;
+        }
+        .Anime-list {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            width: 100%;
+        }
+        .Anime-box {
+            display: flex;
+            align-items: center;
+            background-color: #ffb6b9;
+            width: 80%;
+            padding: 10px;
+            margin: 10px;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        .Anime-box img {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            margin-right: 15px;
+        }
+        .Anime-box a {
+            text-decoration: none;
+            color: #ff6b6b;
+            font-size: 1.2em;
+        }
+        .profile-container {
+            display: flex;
+            width: 80%;
+            max-width: 1000px;
+            background-color: #ffb6b9;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 20px;
+            position: relative;
+        }
+        .profile-image img {
+            width: 275px;
+            height: 275px;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+        .profile-info {
+            flex: 2;
+            text-align: left;
+            color: #333;
+            padding-left: 20px;
+        }
+        .profile-info h2 {
+            color: #333;
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+        .profile-info p {
+            font-size: 1.2em;
+        }
+        .back-btn {
+            margin-top: 20px;
+            background-color: #ff6b6b;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .back-btn:hover {
+            background-color: #ff4d4d;
+        }
+
+                /* Dropdown menu styling */
+                .dropdown {
+            position: absolute;
+            left: 20px;
+        }
+    
+        .dropdown button {
+            background-color: #ffb6b9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+    
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+    
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+    
+        .dropdown-content a:hover {
+            background-color: #ffe5e7;
+        }
+    
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div class="header">
+        <h1>Anime Profiles</h1>
+            <!-- Dropdown Menu -->
+    <div class="dropdown">
+        <button>Menu</button>
+        <div class="dropdown-content">
+            <a href="/characters">Character List</a>
+            <a href="/anime">Anime Information</a>
+            <a href="/manga">Manga Information</a>
+            <a href="/staff">Staff</a>
+            <a href="/music">Music</a>
+        </div>
+    </div>
+    </div>
+
+    
+
+    <div id="content"></div>
+
+    <script>
+        async function loadAnimeData() {
+            const response = await fetch('anime.json');
+            const Animes = await response.json();
+            return Animes;
+        }
+
+        function renderAnimeList(Animes) {
+            const content = document.getElementById('content');
+            const listContainer = document.createElement('div');
+            listContainer.classList.add('Anime-list');
+
+            Animes.forEach(Anime => {
+                const AnimeBox = document.createElement('div');
+                AnimeBox.classList.add('Anime-box');
+                
+                const image = document.createElement('img');
+                image.src = Anime.image;
+                image.alt = Anime.name;
+                
+                const AnimeLink = document.createElement('a');
+                AnimeLink.href = `?id=${Anime.id}`;
+                AnimeLink.textContent = Anime.name;
+                
+                AnimeBox.appendChild(image);
+                AnimeBox.appendChild(AnimeLink);
+                listContainer.appendChild(AnimeBox);
+            });
+            
+            content.appendChild(listContainer);
+        }
+
+        function renderAnimeProfile(Anime) {
+            const content = document.getElementById('content');
+            content.innerHTML = '';
+
+            const profileContainer = document.createElement('div');
+            profileContainer.classList.add('profile-container');
+
+            const profileImage = document.createElement('div');
+            profileImage.classList.add('profile-image');
+
+            const image = document.createElement('img');
+            image.src = Anime.image;
+            image.alt = Anime.name;
+
+            profileImage.appendChild(image);
+            profileContainer.appendChild(profileImage);
+
+            const profileInfo = document.createElement('div');
+            profileInfo.classList.add('profile-info');
+
+            const name = document.createElement('h2');
+            name.textContent = Anime.name;
+            profileInfo.appendChild(name);
+
+            const nameAlt = document.createElement('p');
+            nameAlt.textContent = `Alternate Names: ${Anime.name_alt || 'N/A'}`;
+            profileInfo.appendChild(nameAlt);
+
+            const Episode = document.createElement('p');
+            Episode.textContent = `Episode: ${Anime.Episode || 'N/A'}`;
+            profileInfo.appendChild(Episode);
+
+            const Airdate = document.createElement('p');
+            Airdate.textContent = `Airdate: ${Anime.Airdate || 'N/A'}`;
+            profileInfo.appendChild(Airdate);
+
+            const description = document.createElement('p');
+            description.innerHTML = marked.parse(Anime.description || 'N/A');  
+            profileInfo.appendChild(description);
+
+            const backBtn = document.createElement('button');
+            backBtn.textContent = 'Back to List';
+            backBtn.classList.add('back-btn');
+            backBtn.onclick = () => window.location.href = '/Anime';
+            profileInfo.appendChild(backBtn);
+
+            profileContainer.appendChild(profileInfo);
+            content.appendChild(profileContainer);
+        }
+
+        async function init() {
+            const Animes = await loadAnimeData();
+            const urlParams = new URLSearchParams(window.location.search);
+            const id = urlParams.get('id');
+
+            if (id) {
+                const Anime = Animes.find(char => char.id == id);
+                if (Anime) {
+                    renderAnimeProfile(Anime);
+                } else {
+                    document.getElementById('content').innerHTML = 'Anime not found';
+                }
+            } else {
+                renderAnimeList(Animes);
+            }
+        }
+
+        window.onload = init;
+    </script>
+
+</body>
+</html>

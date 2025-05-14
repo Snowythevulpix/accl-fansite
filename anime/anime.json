@@ -1,0 +1,99 @@
+[
+  {
+    "id": "1",
+    "name": "Nice to Meet You",
+    "name_alt": "はじめまして (Kana), Hajimemashite (Romaji)",
+    "Episode": "1",
+    "Airdate": "TBA",
+    "description": "The first episode",
+    "image": "..\\\\assets\\\\anime\\\\1.png"
+  },
+  {
+    "id": "2",
+    "name": "My First Boyfriend",
+    "name_alt": "初めての彼氏 (Kana), Hajimete no Kareshi (Romaji)",
+    "Episode": "2",
+    "description": "The second episode",
+    "image": "Click to edit"
+  },
+  {
+    "id": "3",
+    "name": "Our First Christmas",
+    "name_alt": "初めてのクリスマス (Kana), Hajimete no Kurisumasu (Romaji)",
+    "Episode": "3",
+    "description": "The third episode",
+    "image": "Click to edit"
+  },
+  {
+    "id": "4",
+    "name": "Our First Shrine Visit",
+    "name_alt": "初めての初詣 (Kana), Hajimete no Hatsumōde (Romaji)",
+    "Episode": "4",
+    "description": "",
+    "image": ""
+  },
+  {
+    "id": "5",
+    "name": "Our First Date",
+    "name_alt": "初めてのデート (Kana), Hajimete no Dēto (Romaji)",
+    "Episode": "5",
+    "description": "",
+    "image": ""
+  },
+  {
+    "id": "6",
+    "name": "Our First Valentine's",
+    "name_alt": "初めてのバレンタイン (Kana), Hajimete no Barentain (Romaji)",
+    "Episode": "6",
+    "description": "",
+    "image": ""
+  },
+  {
+    "id": "7",
+    "name": "My First Confession",
+    "name_alt": "初めての告白 (Kana), Hajimete no Kokuhaku (Romaji)",
+    "Episode": "7",
+    "description": "",
+    "image": ""
+  },
+  {
+    "id": "8",
+    "name": "My First Pet",
+    "name_alt": "初めてのペット (Kana), Hajimete no Petto (Romaji)",
+    "Episode": "8",
+    "description": "",
+    "image": ""
+  },
+  {
+    "id": "9",
+    "name": "His First Birthday",
+    "name_alt": "初めての誕生日 (Kana), Hajimete no Tanjōbi (Romaji)",
+    "Episode": "9",
+    "description": "",
+    "image": ""
+  },
+  {
+    "id": "10",
+    "name": "Our First Second Year",
+    "name_alt": "初めての2年生 (Kana), Hajimete no 2-nensei (Romaji)",
+    "Episode": "10",
+    "description": "",
+    "image": ""
+  },
+  {
+    "id": "11",
+    "name": "Our First Campus Expedition",
+    "name_alt": "初めての学校探検 (Kana), Hajimete no Hakkō Tanken (Romaji)",
+    "Episode": "11",
+    "description": "",
+    "image": ""
+  },
+  {
+    "id": "12",
+    "name": "My First Love",
+    "name_alt": "初めての恋 (Kana), Hajimete no Koi (Romaji)",
+    "Episode": "12",
+    "description": "",
+    "image": ""
+  }
+]

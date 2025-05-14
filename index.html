@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Condition Called Love</title>
+    <style>
+        body {
+            margin: 0;
+            background-color: #feccc9;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: #fff5f3;
+            color: #ff6b6b;
+            padding: 10px 20px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 1.5em;
+            text-align: center;
+        }
+
+        .dropdown {
+            position: absolute;
+            left: 20px;
+        }
+
+        .dropdown button {
+            background-color: #ffb6b9;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            padding: 10px;
+            cursor: pointer;
+            font-size: 1em;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #fff;
+            min-width: 160px;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+        }
+
+        .dropdown-content a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #ffe5e7;
+        }
+
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+
+        .content {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            margin: 10px;
+        }
+
+        .cover {
+            max-width: 200px;
+        }
+
+        .info-box {
+            background-color: #ffb6b9;
+            padding: 10px;
+            margin-top: 10px;
+            max-width: 200px;
+            text-align: center;
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <div class="dropdown">
+            <button>Menu</button>
+            <div class="dropdown-content">
+                <a href="/characters">Character List</a>
+                <a href="/anime">Anime Information</a>
+                <a href="/manga">Manga Information</a>
+                <a href="/staff">Staff</a>
+                <a href="/music">Music</a>
+            </div>
+        </div>
+        <h1>Welcome to Nines' "A Condition Called Love" Fansite</h1>
+    </div>
+    
+    <div class="content">
+        <img class="cover" src="/assets/coversquare.png" alt="A Condition Called Love Cover">
+        <div class="info-box">
+            A Condition Called Love is a franchise created by Megumi Morino
+        </div>
+    </div>
+</body>
+
+</html>
