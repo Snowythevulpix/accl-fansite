@@ -9,7 +9,7 @@
     "voice_actor": "Kana Ichinose (voice comic, Japanese), Kana Hanazawa (anime, Japanese), Dani Chambers (English)"
   },
   {
-    "id": "2",
+    "id": 2,
     "name": "Saki Hananoi",
     "name_alt": "Hananoi Saki, \u82b1\u91ce\u4e95 \u65e9\u5e0c,\u00a0 Hananoi-kun, Hananoi Sasaki-kun (Little Hotaru), Young man (Ryoji) Sacchan (Dad)",
     "age": "16 (Anime) 17 (Manga)",
@@ -42,7 +42,7 @@
     "image": "..\\assets\\characters\\5.png"
   },
   {
-    "id": "6",
+    "id": 6,
     "name": "Sohei Yao",
     "name_alt": "Sohei Yao, \u516b\u5c3e \u5275\u5e73, Yao S\u014dhei, S\u014dhei Yao",
     "age": "16 (Anime) 17 (Manga)",
