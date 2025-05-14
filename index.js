@@ -17,6 +17,18 @@ app.get("/characters", (req, res) => {
     res.sendFile(join(__dirname, "/routes/characters.html"))
 })
 
+app.get("/anime", (req, res) => {
+    res.sendFile(join(__dirname, "/routes/anime.html"))
+})
+
+app.get("/staff", (req, res) => {
+    res.sendFile(join(__dirname, "/routes/staff.html"))
+})
+
+app.get("/music", (req, res) => {
+    res.sendFile(join(__dirname, "/routes/music.html"))
+})
+
 app.get("/api/characters", async (req, res) => {
     const dataRaw = (await readFile(__dirname + "/data/characters.json")).toString()
     const data = JSON.parse(dataRaw)
